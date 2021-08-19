@@ -20,8 +20,8 @@ pipeline {
     // [START tf-init, tf-validate]
     stage('TF init & validate') {
       steps {
-        terraform init
-        terraform validate
+        sh "terraform init"
+        sh "terraform validate"
       }
     }
     // [END tf-init, tf-validate]
