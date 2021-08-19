@@ -20,7 +20,7 @@ pipeline {
     // [START tf-init, tf-validate]
     stage('TF init & validate') {
       steps {
-        container('terraform') {
+        container('terraform1') {
           sh '''
           if [[ $CHANGE_TARGET ]]; then
             TARGET_ENV=$CHANGE_TARGET
