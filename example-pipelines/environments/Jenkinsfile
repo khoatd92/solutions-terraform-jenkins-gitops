@@ -2,7 +2,7 @@ podTemplate(containers: [
     containerTemplate(name: 'terraform', image: 'hashicorp/terraform:1.0.5')
   ]) {
 
-    node(POD_LABEL) {
+    node('node.kubernetes.io/lifecycle=spot') {
           stage('TF init & validate') {
             steps {
               container('terraform') {
