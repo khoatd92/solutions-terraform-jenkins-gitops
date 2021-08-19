@@ -1,22 +1,30 @@
-podTemplate(containers: [
-  containerTemplate(name: 'jnlp', image: 'jenkins/inbound-agent:4.7-1', args: '${computer.jnlpmac} ${computer.name}', command: ''),
-  containerTemplate(name: 'terraform', image: 'hashicorp/terraform:1.0.5',  command: '')
-  ]) {
-
+podTemplate {
     node(POD_LABEL) {
-          stage('TF init & validate') {
-            steps {
-              container('terraform') {
-                sh '''
-                  terraform init
-                  terraform validate
-                fi'''
-              }
-            }
-    }
-
+        stage('Run shell') {
+            sh 'echo hello world'
+        }
     }
 }
+// podTemplate(containers: [
+//   containerTemplate(name: 'jnlp', image: 'jenkins/inbound-agent:4.7-1', args: '${computer.jnlpmac} ${computer.name}', command: ''),
+//   containerTemplate(name: 'terraform', image: 'hashicorp/terraform:1.0.5',  command: '')
+//   ],
+//   ) {
+
+//     node(POD_LABEL) {
+//           stage('TF init & validate') {
+//             steps {
+//               container('terraform') {
+//                 sh '''
+//                   terraform init
+//                   terraform validate
+//                 fi'''
+//               }
+//             }
+//     }
+
+//     }
+// }
 
 // pipeline {
 //   containerTemplate(name: 'terraform', image: 'hashicorp/terraform:1.0.5')
