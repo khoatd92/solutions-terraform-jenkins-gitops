@@ -21,8 +21,8 @@ pipeline {
     stage('TF init & validate') {
       steps {
         container('terraform') {
-          terraform init
-          terraform validate
+          sh "terraform init"
+          sh "terraform validate"
         }
       }
     }
