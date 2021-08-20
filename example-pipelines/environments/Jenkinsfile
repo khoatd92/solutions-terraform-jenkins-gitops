@@ -9,7 +9,7 @@ podTemplate(containers: [
                 sh '''
                   terraform init
                   terraform validate
-                fi'''
+                '''
               }
           }
     }
